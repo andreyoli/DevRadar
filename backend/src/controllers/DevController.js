@@ -1,4 +1,3 @@
-const axios = require("axios");
 const Dev = require("../models/Dev");
 const parseStringAsArray = require("../utils/parseStringAsArray");
 const githubUserAPI = require("../utils/githubUserAPI");
@@ -33,10 +32,10 @@ module.exports = {
     return res.json(dev);
   },
 
-  async index(res) {
-    const devs = await Dev.find();
+  async index(req, res) {
+    const dev = await Dev.find();
 
-    return res.json(devs);
+    return res.json(dev);
   },
 
   async destroy(req, res) {
